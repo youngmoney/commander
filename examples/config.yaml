@@ -1,0 +1,16 @@
+commander:
+  commands:
+  - name: simple
+    match_path_regex: .*
+    match_command: true
+    command: echo hi
+  - name: other
+    match_command: false
+    command: echo other1
+  - name: other
+    match_path_regex: not this path
+    command: echo other2
+  - name: other
+    command: |
+      echo other
+      echo 3
