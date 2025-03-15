@@ -9,7 +9,7 @@ import (
 func commandCommand(name string, args []string, commands *[]Command) error {
 	cwd, err := os.Getwd()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 
@@ -34,7 +34,7 @@ func main() {
 	config := ReadConfig(*configFilename)
 
 	if flag.Arg(0) != "command" {
-		fmt.Println("command is the only supported command")
+		fmt.Fprintln(os.Stderr, "command is the only supported command")
 		os.Exit(1)
 	}
 
